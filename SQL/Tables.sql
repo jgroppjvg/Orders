@@ -97,3 +97,40 @@ auftragspos as
     order by orderno, customerid
     )
 --select * from auftragspos;
+
+########################################################################################
+-- Beispiel, um eine Tabele in Snowflake zu erstellen:
+create or replace table db_analytics.public.kunden as (
+    select distinct
+        customerid,
+        firstname,
+        lastname,
+        country,
+        gender,
+        age,
+        religion
+    from orders
+    order by customerid
+);
+
+-- Beispiel, um eine View in Snowflake zu erstellen:
+create or replace view db_analytics.public.v_kunden (
+    customerid,
+    firstname,
+    lastname,
+    country,
+    gender,
+    age,
+    religion
+) as
+    select distinct
+        customerid,
+        firstname,
+        lastname,
+        country,
+        gender,
+        age,
+        religion
+    from orders
+    order by customerid
+);
